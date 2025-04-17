@@ -28,43 +28,47 @@ const logout = () => {
     redirect: 'follow',
   }
 
-  fetch(`http://localhost:3000/users/logout/${id}`, requestOptions)
+  fetch(`https://fast-sushi-api.vercel.app/users/logout/${id}`, requestOptions)
     .then((response) => response.text())
     .catch((error) => console.log('error', error))
-  router.push('/')
   localStorage.removeItem('authToken')
   localStorage.removeItem('authName')
   localStorage.removeItem('authId')
+  localStorage.removeItem('Cart')
   isLoggedIn.value = false
-  router.push('/Home')
+  location.reload()
 }
 </script>
 
 <template>
   <header>
     <div id="left">
-      <img alt="FastSushi logo" class="logo" src="../assets/logo_blanc.png" />
+      <img
+        alt="FastSushi logo"
+        class="logo"
+        src="../assets/logo_blanc.png"
+        @click="goToPage('Home')"
+      />
     </div>
-    <h1 class="title">FastSushi</h1>
+    <nav class="navbar">
+      <ul>
+        <li><a @click="goToPage('/Cart')">🛒 Panier</a></li>
+        <li><a @click="goToPage('/Profile')">👤 Profil</a></li>
+      </ul>
+    </nav>
     <div id="connection">
       <template v-if="isLoggedIn">
         <button id="logout" @click="logout">Se déconnecter</button>
       </template>
       <template v-else>
-        <button id="Register" @click="goToPage('/Register')">Register</button>
-        <button id="Login" @click="goToPage('/Login')">Login</button>
+        <button id="Register" @click="goToPage('/Register')">S'enregister</button>
+        <button id="Login" @click="goToPage('/Login')">Se connecter</button>
       </template>
     </div>
   </header>
 </template>
 
 <style scoped>
-.title {
-  font-size: clamp(1.2rem, 2.5vw, 3rem);
-  color: white;
-  margin: 0;
-}
-
 header {
   display: flex;
   align-items: center;
@@ -73,11 +77,48 @@ header {
   height: 7vh;
   padding: 0 2vw;
   box-sizing: border-box;
-  margin-top: 1vh;
+  background-color: #0e0e1a;
+}
+
+nav.navbar {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background-color: transparent;
+}
+
+nav.navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+nav.navbar li {
+  position: relative;
+}
+
+nav.navbar a,
+nav.navbar {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+nav.navbar a:hover,
+nav.navbar {
+  color: #b9aaff;
 }
 
 .logo {
   height: clamp(3rem, 5vh, 6rem);
+  cursor: pointer;
 }
 
 #connection {
@@ -94,7 +135,7 @@ header {
   font-weight: bold;
   font-size: clamp(0.8rem, 1.2vw, 1rem);
   height: clamp(2rem, 5vh, 2.5rem);
-  width: clamp(5rem, 7vw, 7rem);
+  width: clamp(6rem, 8vw, 8rem);
   cursor: pointer;
   transition: all 0.2s ease;
 }
