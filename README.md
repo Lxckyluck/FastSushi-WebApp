@@ -1,18 +1,34 @@
 # FastSushi-WebApp
 
-This template should help get you started developing with Vue 3 in Vite.
+This is the WebApp version of the FastSushi Project with Vue.js!
 
-## Recommended IDE Setup
+## Setting-Up the project
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+### Installing and updating the project
 
-## Customize configuration
+To set up the project, you can clone the repository:
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- Using HTTPS :
 
-## Project Setup
+```bash
+git clone https://github.com/Lxckyluck/FastSushi-WebApp.git
+```
 
-```sh
+- Using SSH :
+
+```bash
+git clone git@github.com:Lxckyluck/FastSushi-WebApp.git
+```
+
+Once cloned, navigate to the project directory with:
+
+```bash
+cd FastSushi-DesktopApp
+```
+
+Then, install dependencies and create the node_modules folder by running:
+
+```bash
 npm install
 ```
 
@@ -28,14 +44,28 @@ npm run dev
 npm run build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+## Web App Documentation
 
-```sh
-npm run test:unit
-```
+### Home Page (Accueil)
 
-### Lint with [ESLint](https://eslint.org/)
+In this page you can see all the product of the website and adding them in the cart. You can access all the pages of the website from this page.
 
-```sh
-npm run lint
-```
+### Cart Page (Panier)
+
+In this page you will see all the article that you have selected by pushing the button "Ajouter au panier"
+
+### Profil Page
+
+You can see all the information of your user and you can edit them by clicking the button "Modifier mes infos"
+
+### Register Page
+
+You can access to it by clicking on the button "S'enregistrer". In this page you create a new user
+
+### Login Page
+
+You can access to it by clicking on the button "Se connecter". In this page you log to your user.
+
+### Other functionnality
+
+The "Se déconnecter" button is use to log you off from the website
