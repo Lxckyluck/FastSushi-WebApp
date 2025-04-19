@@ -47,7 +47,7 @@ const logout = () => {
         alt="FastSushi logo"
         class="logo"
         src="../assets/logo_blanc.png"
-        @click="goToPage('Home')"
+        @click="goToPage('../')"
       />
     </div>
     <nav class="navbar">

@@ -39,7 +39,7 @@ const SignIn = () => {
       }
       if (data.token) {
         localStorage.setItem('authToken', data.token)
-        return router.push('/Home')
+        return router.push('../')
       }
       throw new Error('Token non trouvé dans la réponse')
     })
@@ -56,7 +56,7 @@ const SignIn = () => {
         alt="FastSushi logo"
         class="logo"
         src="./assets/logo_blanc.png"
-        @click="goToPage('Home')"
+        @click="goToPage('../')"
       />
     </div>
     <h1 class="title">Connexion</h1>
